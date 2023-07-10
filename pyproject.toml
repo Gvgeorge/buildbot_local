@@ -1,3 +1,7 @@
+[project]
+    name = "buildbot"
+    version = "0.0.1"
+
 [tool.setuptools]
     py-modules = ["master"]
 
