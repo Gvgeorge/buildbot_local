@@ -17,7 +17,7 @@ import functools
 import inspect
 
 from twisted.internet import defer
-from twisted.python import reflect
+from twisted.python import reflect, log
 
 from buildbot.data import base
 from buildbot.data import exceptions
@@ -117,6 +117,7 @@ class DataConnector(service.AsyncService):
         try:
             return self.matcher[path]
         except KeyError as e:
+            log.msg(f"{ep=}")
             raise exceptions.InvalidPathError(
                 "Invalid path: " + "/".join([str(p) for p in path])) from e
 
