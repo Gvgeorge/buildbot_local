@@ -117,7 +117,7 @@ class DataConnector(service.AsyncService):
         try:
             return self.matcher[path]
         except KeyError as e:
-            log.msg(f"{ep=}")
+            log.msg(f"{path=}")
             raise exceptions.InvalidPathError(
                 "Invalid path: " + "/".join([str(p) for p in path])) from e
 
